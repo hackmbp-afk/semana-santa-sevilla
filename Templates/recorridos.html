@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Recorridos</h2>
+
+<form method="POST" action="/add_recorrido">
+    <input name="descripcion" placeholder="Descripción" class="form-control mb-2">
+
+    <select name="cofradia" class="form-control mb-2">
+        {% for c in cofradias %}
+        <option value="{{ c[0] }}">{{ c[1] }}</option>
+        {% endfor %}
+    </select>
+
+    <button class="btn btn-success">Añadir</button>
+</form>
+
+<table class="table mt-3">
+<tr><th>Descripción</th><th>Cofradía</th></tr>
+
+{% for r in data %}
+<tr>
+<td>{{ r[1] }}</td>
+<td>{{ r[2] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

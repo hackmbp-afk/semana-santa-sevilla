@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>{{ cofradia[1] }}</h2>
+<p>Día: {{ cofradia[2] }}</p>
+
+<h4>Pasos</h4>
+<ul>
+{% for p in pasos %}
+<li>{{ p[1] }} - {{ p[2] }}</li>
+{% endfor %}
+</ul>
+
+<h4>Recorrido</h4>
+<p>{{ recorrido[1] }}</p>
+
+{% endblock %}

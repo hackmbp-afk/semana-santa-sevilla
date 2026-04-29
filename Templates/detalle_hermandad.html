@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>{{ hermandad[1] }}</h2>
+<p><strong>Barrio:</strong> {{ hermandad[2] }}</p>
+
+<h4>Cofradías</h4>
+
+<ul>
+{% for c in cofradias %}
+<li>{{ c[1] }} ({{ c[2] }})</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

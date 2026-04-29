@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Eventos</h2>
+
+<form method="POST" action="/add_evento">
+    <input name="nombre" placeholder="Evento" class="form-control mb-2">
+    <input type="date" name="fecha" class="form-control mb-2">
+
+    <select name="hermandad" class="form-control mb-2">
+        {% for h in hermandades %}
+        <option value="{{ h[0] }}">{{ h[1] }}</option>
+        {% endfor %}
+    </select>
+
+    <button class="btn btn-success">Añadir</button>
+</form>
+
+<table class="table mt-3">
+<tr><th>Evento</th><th>Fecha</th><th>Hermandad</th></tr>
+
+{% for e in data %}
+<tr>
+<td>{{ e[1] }}</td>
+<td>{{ e[2] }}</td>
+<td>{{ e[3] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

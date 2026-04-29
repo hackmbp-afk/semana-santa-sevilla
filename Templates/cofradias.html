@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Cofradías</h2>
+
+<form method="POST" action="/add_cofradia">
+    <input name="nombre" placeholder="Nombre" class="form-control mb-2">
+    <input name="dia" placeholder="Día" class="form-control mb-2">
+
+    <select name="hermandad" class="form-control mb-2">
+        {% for h in hermandades %}
+        <option value="{{ h[0] }}">{{ h[1] }}</option>
+        {% endfor %}
+    </select>
+
+    <button class="btn btn-success">Añadir</button>
+</form>
+
+<table class="table mt-3">
+<tr>
+<th>Nombre</th>
+<th>Día</th>
+<th>Hermandad</th>
+<th>Acciones</th>
+</tr>
+
+{% for c in data %}
+<tr>
+<td>{{ c[1] }}</td>
+<td>{{ c[2] }}</td>
+<td>{{ c[3] }}</td>
+<td>
+    <a href="/cofradia/{{ c[0] }}" class="btn btn-info btn-sm">Ver</a>
+    <a href="/delete_cofradia/{{ c[0] }}" class="btn btn-danger btn-sm">Eliminar</a>
+</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

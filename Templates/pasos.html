@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Pasos</h2>
+
+<form method="POST" action="/add_paso">
+    <input name="nombre" placeholder="Nombre" class="form-control mb-2">
+    <input name="estilo" placeholder="Estilo" class="form-control mb-2">
+
+    <select name="cofradia" class="form-control mb-2">
+        {% for c in cofradias %}
+        <option value="{{ c[0] }}">{{ c[1] }}</option>
+        {% endfor %}
+    </select>
+
+    <button class="btn btn-success">Añadir</button>
+</form>
+
+<table class="table mt-3">
+<tr><th>Nombre</th><th>Estilo</th><th>Cofradía</th></tr>
+
+{% for p in data %}
+<tr>
+<td>{{ p[1] }}</td>
+<td>{{ p[2] }}</td>
+<td>{{ p[3] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}

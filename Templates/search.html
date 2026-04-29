@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Buscar Cofradías</h2>
+
+<form method="POST">
+    <input name="nombre" placeholder="Nombre" class="form-control mb-2">
+    <button class="btn btn-primary">Buscar</button>
+</form>
+
+<table class="table mt-3">
+<tr><th>Cofradía</th><th>Día</th><th>Hermandad</th></tr>
+
+{% for r in resultados %}
+<tr>
+<td>{{ r[0] }}</td>
+<td>{{ r[1] }}</td>
+<td>{{ r[2] }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+{% endblock %}
